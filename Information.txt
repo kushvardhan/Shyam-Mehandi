@@ -1,0 +1,78 @@
+Create a full-featured traditional Mehandi artist website for Shyam Kumar. The website should have a beautiful, elegant, and professional look, using traditional Mehandi-inspired patterns as background textures, traditional fonts for headings and text, and subtle decorative icons. The overall UX should be clean, mobile-responsive, and visually appealing to clients looking for Mehandi services. The design should match the provided logo: "ShyamMehandiLogo.jpeg". Use this logo for the website header and favicon. 
+
+The website should have the following sections:
+
+1. **Header / Navigation Bar:**
+   - Display the logo on the left.
+   - Navigation links: Home, About, Services, Gallery, Contact.
+   - Make the navigation sticky at the top.
+   - Add WhatsApp and Call icons/links in the top-right corner.
+     - WhatsApp link: `https://wa.me/919801664383`
+     - Call link: `tel:+919801664383`
+   - Use subtle hover effects for links and icons.
+
+2. **Hero Section:**
+   - Full-width hero section with a Mehandi-patterned background.
+   - Catchy heading introducing Shyam Kumar as a professional Mehandi artist.
+   - Subheading with location: "Anand Market, Balua Chowk, Motihari, Priya Kangan Cosmetic Shop ke Saamne".
+   - Include call-to-action buttons: "Book Now" (link to WhatsApp) and "Call Now" (clickable phone link).
+
+3. **About Section:**
+   - Title: "About the Artist"
+   - Short description about Shyam Kumar and his Mehandi artistry.
+   - Instead of the artist’s actual picture, temporarily use a placeholder image from Google.
+   - Include social links: 
+     - Instagram: `https://www.instagram.com/shayam_mendiartist`
+     - Facebook: `https://www.facebook.com/share/195vYjA2YY/`
+     - Phone: `+91 9801664383`, `+91 9525945515`
+     - Email: `shyammehandiartist3@gmail.com`
+
+4. **Services Section:**
+   - List of services offered (Mehandi types like Bridal, Arabic, Party, etc.)
+   - Use traditional icons or images for each service.
+   - Clean grid layout with hover effects.
+
+5. **Gallery Section:**
+   - Display Mehandi pictures provided in the folder `/mehandi/`.
+   - Use a responsive grid layout with hover zoom effect.
+   - Clicking an image should open it in a lightbox.
+
+6. **Contact Section:**
+   - Contact form: Name, Email, Phone, Message.
+   - Include WhatsApp and Call buttons for direct contact.
+   - Display the location with Google Maps iframe or a link.
+   - Email link: `mailto:shyammehandiartist3@gmail.com`
+
+7. **Footer:**
+   - Include quick links to Home, About, Services, Gallery, Contact.
+   - Display email: "shyammehandiartist3@gmail.com"
+   - Display phone numbers.
+   - Give developer credit: 
+     - Text: "Developed by Kush Vardhan"
+     - Link: `https://kush-personal-portfolio-my-portfolio.vercel.app/`
+   - Make footer visually traditional and elegant with Mehandi patterns.
+
+8. **Styling Requirements:**
+   - Use warm, traditional colors (deep green, gold, brown, cream).
+   - Traditional fonts for headings (like cursive or Indian calligraphy style) and readable fonts for body text.
+   - Subtle Mehandi patterns in the background of sections.
+   - Smooth hover effects for buttons, links, and gallery images.
+   - Responsive design for mobile, tablet, and desktop.
+
+9. **Additional Requirements:**
+   - Make sure the website matches the style and feel of the logo provided.
+   - Include meta tags for SEO (title, description, keywords).
+   - Smooth scrolling for navigation links.
+   - Favicon from logo.
+   - Light animation for hero section text and buttons using CSS or simple JavaScript.
+
+10. **Technical Requirements:**
+    - HTML5, CSS3 (can use Tailwind CSS if needed), and vanilla JavaScript.
+    - The website should be fully static and hostable on Hostinger without Node.js.
+    - Organize the images and assets in folders (e.g., `/images/`, `/mehandi/`).
+    - All links and buttons (WhatsApp, Call, Social Media) must be functional.
+    - Ensure the code is clean, modular, and easy to maintain.
+
+End goal: A beautiful, traditional, professional Mehandi artist website that is visually appealing, responsive, and easy for clients to navigate, book, and contact the artist.
+
+
