@@ -229,6 +229,12 @@ body {
   transform: translateY(-3px);
 }
 
+.email{
+    display:flex;
+    align-items: center;
+    gap:0.8rem;
+}
+
 /* Sections */
 section {
   padding: 48px 0;
@@ -301,6 +307,7 @@ h2 {
 .contact-phone {
   display: flex;
   align-items: center;
+  gap:0.8rem;
 }
 
 .phone-num {
