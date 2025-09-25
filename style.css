@@ -298,6 +298,17 @@ h2 {
   color: var(--gold);
 }
 
+.contact-phone{
+    display: flex;
+    align-items: center;
+    
+}
+
+.phone-num{
+    display: flex;
+    gap:1rem;
+}
+
 /* Services */
 .services-grid {
   display: grid;
@@ -386,6 +397,10 @@ h2 {
   );
   font-size: 14px;
 }
+.card:hover .card-image {
+  transform: scale(1.04);
+  transition: transform 0.35s ease;
+}
 .carousel-nav {
   background: var(--deep-green);
   color: var(--cream);
@@ -439,6 +454,55 @@ h2 {
   border-radius: 8px;
 }
 
+/* Contact quick block styles */
+.contact-quick {
+  margin-top: 16px;
+}
+.contact-encourage {
+  margin: 0 0 8px 0;
+  color: #42332b;
+}
+.contact-items {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 12px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.contact-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #3b3b3b;
+}
+.contact-item i {
+  color: var(--deep-green);
+  background: rgba(11, 59, 46, 0.06);
+  padding: 8px;
+  border-radius: 8px;
+  min-width: 36px;
+  text-align: center;
+}
+.social-inline {
+  display: flex;
+  gap: 10px;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--gold), #d6b85a);
+  color: var(--cream);
+  text-decoration: none;
+}
+.social-btn i {
+  font-size: 18px;
+}
+
 /* Footer */
 .site-footer {
   background: linear-gradient(180deg, #f6efe6, #efe6d8);
@@ -457,6 +521,22 @@ h2 {
 .footer-links a {
   color: var(--deep-green);
   text-decoration: none;
+  .footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(11, 59, 46, 0.06);
+    color: var(--deep-green);
+    margin-right: 8px;
+    text-decoration: none;
+  }
+  .footer-socials a:hover {
+    background: linear-gradient(90deg, var(--gold), #d6b85a);
+    color: #fff;
+  }
 }
 .footer-links a:hover {
   text-decoration: underline;
@@ -590,5 +670,21 @@ h2 {
   }
   .card {
     min-width: 150px;
+  }
+  /* tighter mobile spacing */
+  .container {
+    width: calc(100% - 28px);
+  }
+  .hero {
+    padding: 28px 0;
+  }
+  .hero-content {
+    padding: 12px 8px;
+  }
+  .booking-card {
+    padding: 16px;
+  }
+  .contact-quick .contact-item span {
+    font-size: 15px;
   }
 }

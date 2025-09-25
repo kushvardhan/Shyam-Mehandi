@@ -87,7 +87,6 @@
               >Book Now via WhatsApp</a
             >
             <a class="btn btn-outline" href="tel:+919801664383">Call Now</a>
-            <a class="btn btn-ghost" href="#gallery">See Gallery</a>
           </div>
           <ul class="hero-features">
             <li>Bridal &amp; Full-hand Mastery</li>
@@ -101,10 +100,7 @@
       <section class="about" id="about">
         <div class="container section-grid">
           <div class="about-img">
-            <img
-              src="ShyamKumar.jpeg"
-              alt="Artist placeholder"
-            />
+            <img src="ShyamKumar.jpeg" alt="Artist placeholder" />
           </div>
           <div class="about-content">
             <h2>About the Artist</h2>
@@ -126,13 +122,17 @@
               <div><strong>100%</strong><span>Natural Henna</span></div>
             </div>
             <ul class="contact-list">
-              <li>
-                <strong>Phone:</strong>
-                <a href="tel:+919801664383">+91 9801664383</a>,
+              <li class="contact-phone">
+                <strong>Phone</strong>
+                <i class="fas fa-phone"></i> :
+                <div class="phone-num">
+                    <a href="tel:+919801664383">+91 9801664383</a>
                 <a href="tel:+919525945515">+91 9525945515</a>
+                </div>
               </li>
               <li>
                 <strong>Email:</strong>
+                <i class="fas fa-envelope"></i>
                 <a href="mailto:shyammehandiartist3@gmail.com"
                   >shyammehandiartist3@gmail.com</a
                 >
@@ -142,13 +142,15 @@
                   class="social"
                   href="https://www.instagram.com/shayam_mendiartist"
                   target="_blank"
-                  >Instagram</a
+                  aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i> Instagram</a
                 >
                 <a
                   class="social"
                   href="https://www.facebook.com/share/195vYjA2YY/"
                   target="_blank"
-                  >Facebook</a
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i> Facebook</a
                 >
               </li>
             </ul>
@@ -351,29 +353,13 @@
               >
               <a class="btn btn-outline" href="tel:+919801664383">Call Now</a>
             </div>
-            <div class="mini-pricing">
-              <h4>Starting Prices</h4>
-              <ul>
-                <li>Bridal (Full): ₹5,000+</li>
-                <li>Arabic / Party: ₹800 - ₹2,000</li>
-                <li>Kids / Quick: ₹200 - ₹500</li>
-              </ul>
-            </div>
-          </div>
-          <div class="contact-info">
-            <h3>Visit &amp; Hours</h3>
-            <p>
-              Anand Market, Balua Chowk, Motihari — Priya Kangan Cosmetic Shop
-              ke Saamne
-            </p>
-            <div class="map">
-              <iframe
-                title="Location"
-                src="https://www.google.com/maps?q=Anand%20Market%2C%20Balua%20Chowk%2C%20Motihari&output=embed"
-                loading="lazy"
-              ></iframe>
-            </div>
-            <h3>Details</h3>
+            <!-- Replaced pricing with clear contact details -->
+            <div class="contact-quick">
+              <p class="contact-encourage">
+                Have questions or want to check availability? Send a quick
+                message — we'll reply fast.
+              </p>
+              <h3>Details</h3>
             <p>
               <strong>Email:</strong>
               <a href="mailto:shyammehandiartist3@gmail.com"
@@ -389,20 +375,39 @@
               <strong>Hours:</strong>
               <p>Mon - Sat: 10:00 AM - 8:00 PM<br />Sun: By appointment</p>
             </div>
-            <div class="social-cta">
-              <a
-                class="social-btn"
-                href="https://www.instagram.com/shayam_mendiartist"
-                target="_blank"
-                >Instagram</a
-              >
-              <a
-                class="social-btn"
-                href="https://www.facebook.com/share/195vYjA2YY/"
-                target="_blank"
-                >Facebook</a
-              >
+            <div class="social-inline">
+                <a
+                  class="social-btn"
+                  href="https://www.instagram.com/shayam_mendiartist"
+                  target="_blank"
+                  aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  class="social-btn"
+                  href="https://www.facebook.com/share/195vYjA2YY/"
+                  target="_blank"
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </div>
+              
             </div>
+          </div>
+          <div class="contact-info">
+            <h3>Visit &amp; Hours</h3>
+            <p>
+              Anand Market, Balua Chowk, Motihari — Priya Kangan Cosmetic Shop
+              ke Saamne
+            </p>
+            <div class="map">
+              <iframe
+                title="Location"
+                src="https://www.google.com/maps?q=Anand%20Market%2C%20Balua%20Chowk%2C%20Motihari&output=embed"
+                loading="lazy"
+              ></iframe>
+            </div>
+            
           </div>
         </div>
       </section>
@@ -432,11 +437,32 @@
         <div>
           <h4>Contact</h4>
           <p>
+            <i class="fas fa-envelope"></i>
             <a href="mailto:shyammehandiartist3@gmail.com"
               >shyammehandiartist3@gmail.com</a
             >
           </p>
-          <p><a href="tel:+919801664383">+91 9801664383</a></p>
+          <p>
+            <i class="fas fa-phone"></i>
+            <a href="tel:+919801664383">+91 9801664383</a>,
+            <a href="tel:+919525945515">+91 9525945515</a>
+          </p>
+          <div class="social-inline">
+                <a
+                  class="social-btn"
+                  href="https://www.instagram.com/shayam_mendiartist"
+                  target="_blank"
+                  aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  class="social-btn"
+                  href="https://www.facebook.com/share/195vYjA2YY/"
+                  target="_blank"
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -444,6 +470,7 @@
         <p>
           Developed by
           <a
+          title="kushvardhan39797@gmail.com"
             href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
             target="_blank"
             >Kush Vardhan</a
@@ -462,13 +489,4 @@
 
     <script src="script.js"></script>
   </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shyam Mehandi</title>
-  </head>
-  <body></body>
 </html>
