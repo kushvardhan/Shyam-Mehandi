@@ -17,6 +17,10 @@
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -40,10 +44,11 @@
             href="https://wa.me/919801664383"
             target="_blank"
             aria-label="WhatsApp"
-            >WhatsApp</a
+            ><i class="fab fa-whatsapp"></i
+            ><span class="link-text"> WhatsApp</span></a
           >
           <a class="icon-link" href="tel:+919801664383" aria-label="Call"
-            >Call</a
+            ><i class="fas fa-phone"></i><span class="link-text"> Call</span></a
           >
         </div>
         <button
@@ -59,13 +64,20 @@
     <main>
       <!-- HERO -->
       <section class="hero" id="home">
+        <div class="hero-pattern" aria-hidden="true"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
           <h1 class="hero-title">Shyam Kumar</h1>
-          <p class="hero-sub">Professional Traditional Mehandi Artist</p>
+          <p class="hero-sub">Master of Traditional &amp; Modern Mehandi Art</p>
           <p class="hero-location">
             Anand Market, Balua Chowk, Motihari — Priya Kangan Cosmetic Shop ke
             Saamne
+          </p>
+          <p class="hero-desc">
+            Over 12 years of experience crafting stunning bridal, Arabic and
+            contemporary Mehandi designs. Available for weddings, parties and
+            custom events across Motihari and nearby cities. Book early to
+            secure weekends.
           </p>
           <div class="hero-ctas">
             <a
@@ -75,7 +87,13 @@
               >Book Now via WhatsApp</a
             >
             <a class="btn btn-outline" href="tel:+919801664383">Call Now</a>
+            <a class="btn btn-ghost" href="#gallery">See Gallery</a>
           </div>
+          <ul class="hero-features">
+            <li>Bridal &amp; Full-hand Mastery</li>
+            <li>Natural, skin-friendly henna</li>
+            <li>Custom motifs &amp; same-day bookings</li>
+          </ul>
         </div>
       </section>
 
@@ -84,19 +102,29 @@
         <div class="container section-grid">
           <div class="about-img">
             <img
-              src="https://www.fashionbeans.com/wp-content/uploads/2018/07/cavill-tasche-1.jpg"
+              src="ShyamKumar.jpeg"
               alt="Artist placeholder"
             />
           </div>
           <div class="about-content">
             <h2>About the Artist</h2>
-            <p>
-              Shyam Kumar is a passionate Mehandi artist based in Motihari with
-              years of experience in traditional and contemporary Mehandi
-              designs. Known for intricate patterns, smooth application and
-              client-friendly services, Shyam brings your special occasions to
-              life with beautiful henna art.
+            <p class="lead">
+              Hi, I'm <strong>Shyam Kumar</strong> — a traditional Mehandi
+              artist who loves bringing cultural motifs to life. I combine
+              classic Indian patterns with modern touches to create designs that
+              last and look beautiful on every skin tone.
             </p>
+            <p>
+              Specialities: Bridal Mehandi, Arabic &amp; Indo-Arabic fusion,
+              quick-party designs, and bespoke motif creation for special
+              themes. I work with natural henna and ensure comfortable, hygienic
+              application.
+            </p>
+            <div class="about-stats">
+              <div><strong>12+</strong><span>Years Experience</span></div>
+              <div><strong>2000+</strong><span>Happy Clients</span></div>
+              <div><strong>100%</strong><span>Natural Henna</span></div>
+            </div>
             <ul class="contact-list">
               <li>
                 <strong>Phone:</strong>
@@ -172,143 +200,131 @@
         <div class="container">
           <h2>Gallery</h2>
           <p class="section-sub">A selection of recent designs</p>
-          <div class="gallery-grid" id="galleryGrid">
-            <!-- Images from /mehandi/ folder -->
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.51.jpeg"
-              alt="Mehandi 1"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.52 (1).jpeg"
-              alt="Mehandi 2"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.52.jpeg"
-              alt="Mehandi 3"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.54.jpeg"
-              alt="Mehandi 4"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.55.jpeg"
-              alt="Mehandi 5"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.03.jpeg"
-              alt="Mehandi 6"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.16.jpeg"
-              alt="Mehandi 7"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.18 (1).jpeg"
-              alt="Mehandi 8"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.18.jpeg"
-              alt="Mehandi 9"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 14.40.00.jpeg"
-              alt="Mehandi 10"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.31.jpeg"
-              alt="Mehandi 11"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.32 (1).jpeg"
-              alt="Mehandi 12"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.32.jpeg"
-              alt="Mehandi 13"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.33 (1).jpeg"
-              alt="Mehandi 14"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.33.jpeg"
-              alt="Mehandi 15"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.34 (1).jpeg"
-              alt="Mehandi 16"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.34 (2).jpeg"
-              alt="Mehandi 17"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.34.jpeg"
-              alt="Mehandi 18"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.35 (1).jpeg"
-              alt="Mehandi 19"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.35.jpeg"
-              alt="Mehandi 20"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.36 (1).jpeg"
-              alt="Mehandi 21"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.36.jpeg"
-              alt="Mehandi 22"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.37 (1).jpeg"
-              alt="Mehandi 23"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.37 (2).jpeg"
-              alt="Mehandi 24"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.37.jpeg"
-              alt="Mehandi 25"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.38 (1).jpeg"
-              alt="Mehandi 26"
-              class="gallery-item"
-            />
-            <img
-              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.38.jpeg"
-              alt="Mehandi 27"
-              class="gallery-item"
-            />
+          <div class="carousel" id="galleryCarousel">
+            <button
+              class="carousel-nav prev"
+              id="carouselPrev"
+              aria-label="Previous"
+            >
+              ‹
+            </button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="carouselTrack">
+                <!-- cards generated inline -->
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 14.38.51.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Intricate bridal motif</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 14.38.52 (1).jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Arabic floral</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 14.38.52.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Delicate finger art</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 14.38.54.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Full hand bride</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 14.38.55.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Leg and feet design</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 14.39.03.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Bridal close-up</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 14.39.16.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Party special</div>
+                </div>
+                <!-- repeated images for full carousel -->
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 17.33.31.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Floral vines</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 17.33.32.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Traditional motif</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 17.33.33.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Fusion style</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 17.33.34.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Bold outlines</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 17.33.35.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Delicate nets</div>
+                </div>
+                <div class="card">
+                  <img
+                    class="card-image"
+                    src="mehandi/WhatsApp Image 2025-09-23 at 17.33.36.jpeg"
+                    alt="Mehandi"
+                  />
+                  <div class="card-cap">Statement palm</div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-nav next"
+              id="carouselNext"
+              aria-label="Next"
+            >
+              ›
+            </button>
           </div>
         </div>
       </section>
@@ -316,54 +332,36 @@
       <!-- CONTACT -->
       <section class="contact" id="contact">
         <div class="container contact-grid">
-          <div class="contact-form">
-            <h2>Contact</h2>
-            <p class="section-sub">Get in touch for bookings and enquiries</p>
-            <form id="contactForm">
-              <div class="form-row">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-              <div class="form-row">
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  required
-                />
-              </div>
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="Message"
-                required
-              ></textarea>
-              <div class="form-actions">
-                <button class="btn btn-primary" type="submit">
-                  Send Message
-                </button>
-                <a
-                  class="btn btn-outline"
-                  href="https://wa.me/919801664383"
-                  target="_blank"
-                  >WhatsApp</a
-                >
-                <a class="btn btn-outline" href="tel:+919801664383">Call</a>
-              </div>
-            </form>
+          <div class="booking-card">
+            <h2>Book an Appointment</h2>
+            <p class="section-sub">
+              Quick &amp; Easy bookings via WhatsApp or Call
+            </p>
+            <p class="booking-note">
+              To reserve your date, please message with your event date, type of
+              service (Bridal / Arabic / Party), and approximate guest count.
+              Weekend slots fill fast.
+            </p>
+            <div class="booking-ctas">
+              <a
+                class="btn btn-primary"
+                href="https://wa.me/919801664383"
+                target="_blank"
+                >Message on WhatsApp</a
+              >
+              <a class="btn btn-outline" href="tel:+919801664383">Call Now</a>
+            </div>
+            <div class="mini-pricing">
+              <h4>Starting Prices</h4>
+              <ul>
+                <li>Bridal (Full): ₹5,000+</li>
+                <li>Arabic / Party: ₹800 - ₹2,000</li>
+                <li>Kids / Quick: ₹200 - ₹500</li>
+              </ul>
+            </div>
           </div>
           <div class="contact-info">
-            <h3>Visit</h3>
+            <h3>Visit &amp; Hours</h3>
             <p>
               Anand Market, Balua Chowk, Motihari — Priya Kangan Cosmetic Shop
               ke Saamne
@@ -387,6 +385,10 @@
               <a href="tel:+919801664383">+91 9801664383</a>,
               <a href="tel:+919525945515">+91 9525945515</a>
             </p>
+            <div class="hours">
+              <strong>Hours:</strong>
+              <p>Mon - Sat: 10:00 AM - 8:00 PM<br />Sun: By appointment</p>
+            </div>
             <div class="social-cta">
               <a
                 class="social-btn"
