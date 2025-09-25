@@ -1,11 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shyam Kumar — Traditional Mehandi Artist | Motihari</title>
+    <meta
+      name="description"
+      content="Shyam Kumar - Professional Mehandi Artist in Motihari. Bridal, Arabic, Party, and Custom Mehandi designs. Book via WhatsApp or Call."
+    />
+    <meta
+      name="keywords"
+      content="Mehandi, Mehndi, Henna, Bridal Mehandi, Arabic Mehandi, Motihari, Shyam Kumar"
+    />
+    <link rel="icon" href="ShyamMehandiLogo.jpeg" type="image/jpeg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <div class="container header-inner">
+        <a class="logo" href="#home">
+          <img src="ShyamMehandiLogo.jpeg" alt="Shyam Mehandi Logo" />
+        </a>
+        <nav class="nav" id="nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="top-contacts">
+          <a
+            class="icon-link"
+            href="https://wa.me/919801664383"
+            target="_blank"
+            aria-label="WhatsApp"
+            >WhatsApp</a
+          >
+          <a class="icon-link" href="tel:+919801664383" aria-label="Call"
+            >Call</a
+          >
+        </div>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <h1 class="hero-title">Shyam Kumar</h1>
+          <p class="hero-sub">Professional Traditional Mehandi Artist</p>
+          <p class="hero-location">
+            Anand Market, Balua Chowk, Motihari — Priya Kangan Cosmetic Shop ke
+            Saamne
+          </p>
+          <div class="hero-ctas">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/919801664383"
+              target="_blank"
+              >Book Now via WhatsApp</a
+            >
+            <a class="btn btn-outline" href="tel:+919801664383">Call Now</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about" id="about">
+        <div class="container section-grid">
+          <div class="about-img">
+            <img
+              src="https://www.fashionbeans.com/wp-content/uploads/2018/07/cavill-tasche-1.jpg"
+              alt="Artist placeholder"
+            />
+          </div>
+          <div class="about-content">
+            <h2>About the Artist</h2>
+            <p>
+              Shyam Kumar is a passionate Mehandi artist based in Motihari with
+              years of experience in traditional and contemporary Mehandi
+              designs. Known for intricate patterns, smooth application and
+              client-friendly services, Shyam brings your special occasions to
+              life with beautiful henna art.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <strong>Phone:</strong>
+                <a href="tel:+919801664383">+91 9801664383</a>,
+                <a href="tel:+919525945515">+91 9525945515</a>
+              </li>
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:shyammehandiartist3@gmail.com"
+                  >shyammehandiartist3@gmail.com</a
+                >
+              </li>
+              <li class="socials">
+                <a
+                  class="social"
+                  href="https://www.instagram.com/shayam_mendiartist"
+                  target="_blank"
+                  >Instagram</a
+                >
+                <a
+                  class="social"
+                  href="https://www.facebook.com/share/195vYjA2YY/"
+                  target="_blank"
+                  >Facebook</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services" id="services">
+        <div class="container">
+          <h2>Services</h2>
+          <p class="section-sub">
+            Traditional and contemporary Mehandi styles for all occasions
+          </p>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">🤵‍♀️</div>
+              <h3>Bridal Mehandi</h3>
+              <p>
+                Elaborate bridal patterns with fine details, full hands and feet
+                coverage.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🌿</div>
+              <h3>Arabic Mehandi</h3>
+              <p>
+                Flowing, bold designs perfect for parties and special events.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🎉</div>
+              <h3>Party &amp; Event Mehandi</h3>
+              <p>
+                Quick, stylish patterns suitable for gatherings and functions.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">⭐</div>
+              <h3>Custom Designs</h3>
+              <p>Personalized motifs and fusion designs to match your theme.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="gallery" id="gallery">
+        <div class="container">
+          <h2>Gallery</h2>
+          <p class="section-sub">A selection of recent designs</p>
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- Images from /mehandi/ folder -->
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.51.jpeg"
+              alt="Mehandi 1"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.52 (1).jpeg"
+              alt="Mehandi 2"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.52.jpeg"
+              alt="Mehandi 3"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.54.jpeg"
+              alt="Mehandi 4"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.38.55.jpeg"
+              alt="Mehandi 5"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.03.jpeg"
+              alt="Mehandi 6"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.16.jpeg"
+              alt="Mehandi 7"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.18 (1).jpeg"
+              alt="Mehandi 8"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.39.18.jpeg"
+              alt="Mehandi 9"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 14.40.00.jpeg"
+              alt="Mehandi 10"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.31.jpeg"
+              alt="Mehandi 11"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.32 (1).jpeg"
+              alt="Mehandi 12"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.32.jpeg"
+              alt="Mehandi 13"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.33 (1).jpeg"
+              alt="Mehandi 14"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.33.jpeg"
+              alt="Mehandi 15"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.34 (1).jpeg"
+              alt="Mehandi 16"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.34 (2).jpeg"
+              alt="Mehandi 17"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.34.jpeg"
+              alt="Mehandi 18"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.35 (1).jpeg"
+              alt="Mehandi 19"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.35.jpeg"
+              alt="Mehandi 20"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.36 (1).jpeg"
+              alt="Mehandi 21"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.36.jpeg"
+              alt="Mehandi 22"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.37 (1).jpeg"
+              alt="Mehandi 23"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.37 (2).jpeg"
+              alt="Mehandi 24"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.37.jpeg"
+              alt="Mehandi 25"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.38 (1).jpeg"
+              alt="Mehandi 26"
+              class="gallery-item"
+            />
+            <img
+              src="mehandi/WhatsApp Image 2025-09-23 at 17.33.38.jpeg"
+              alt="Mehandi 27"
+              class="gallery-item"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-form">
+            <h2>Contact</h2>
+            <p class="section-sub">Get in touch for bookings and enquiries</p>
+            <form id="contactForm">
+              <div class="form-row">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                />
+              </div>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Message"
+                required
+              ></textarea>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">
+                  Send Message
+                </button>
+                <a
+                  class="btn btn-outline"
+                  href="https://wa.me/919801664383"
+                  target="_blank"
+                  >WhatsApp</a
+                >
+                <a class="btn btn-outline" href="tel:+919801664383">Call</a>
+              </div>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Visit</h3>
+            <p>
+              Anand Market, Balua Chowk, Motihari — Priya Kangan Cosmetic Shop
+              ke Saamne
+            </p>
+            <div class="map">
+              <iframe
+                title="Location"
+                src="https://www.google.com/maps?q=Anand%20Market%2C%20Balua%20Chowk%2C%20Motihari&output=embed"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <h3>Details</h3>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:shyammehandiartist3@gmail.com"
+                >shyammehandiartist3@gmail.com</a
+              >
+            </p>
+            <p>
+              <strong>Phone:</strong>
+              <a href="tel:+919801664383">+91 9801664383</a>,
+              <a href="tel:+919525945515">+91 9525945515</a>
+            </p>
+            <div class="social-cta">
+              <a
+                class="social-btn"
+                href="https://www.instagram.com/shayam_mendiartist"
+                target="_blank"
+                >Instagram</a
+              >
+              <a
+                class="social-btn"
+                href="https://www.facebook.com/share/195vYjA2YY/"
+                target="_blank"
+                >Facebook</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="logo small" href="#home"
+            ><img src="ShyamMehandiLogo.jpeg" alt="logo"
+          /></a>
+          <p>
+            Traditional Mehandi services in Motihari. Elegant designs &amp;
+            reliable bookings.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>
+            <a href="mailto:shyammehandiartist3@gmail.com"
+              >shyammehandiartist3@gmail.com</a
+            >
+          </p>
+          <p><a href="tel:+919801664383">+91 9801664383</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Shyam Kumar — All Rights Reserved.</p>
+        <p>
+          Developed by
+          <a
+            href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
+            target="_blank"
+            >Kush Vardhan</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+      <button class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+      <img class="lb-image" id="lbImage" src="" alt="" />
+      <button class="lb-next" id="lbNext" aria-label="Next">›</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shyam Mehandi</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>
