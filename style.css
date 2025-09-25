@@ -298,15 +298,14 @@ h2 {
   color: var(--gold);
 }
 
-.contact-phone{
-    display: flex;
-    align-items: center;
-    
+.contact-phone {
+  display: flex;
+  align-items: center;
 }
 
-.phone-num{
-    display: flex;
-    gap:1rem;
+.phone-num {
+  display: flex;
+  gap: 1rem;
 }
 
 /* Services */
@@ -688,3 +687,103 @@ h2 {
     font-size: 15px;
   }
 }
+
+/* === Responsive overflow & link fixes (overrides) === */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* strong guard against horizontal scroll */
+}
+
+/* Make images behave responsively everywhere (including gallery cards) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent long words/emails/phone numbers from creating horizontal scroll */
+.hero-content,
+.about-content,
+.booking-card,
+.contact-info,
+.footer-grid,
+.contact-quick,
+.card-cap {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Lightbox: limit image to viewport minus comfortable gutters */
+.lb-image {
+  max-width: calc(100% - 48px) !important;
+  max-height: calc(100% - 96px) !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Ensure the lightbox controls don't push layout on very small screens */
+.lb-prev,
+.lb-next,
+.lb-close {
+  max-width: 56px;
+  padding: 6px 8px;
+}
+
+/* Footer: stack columns on smaller screens to avoid overflow */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Normalize phone / mailto / social link appearance (remove default blue underline) */
+a[href^="tel:"],
+a[href^="mailto:"],
+.contact-list a,
+.contact-items a,
+.booking-ctas a,
+.footer-links a,
+.social,
+.icon-link {
+  color: var(--deep-green);
+  text-decoration: none;
+}
+
+/* Hover state keeps clear visual affordance */
+a[href^="tel:"]:hover,
+a[href^="mailto:"]:hover,
+.contact-list a:hover,
+.contact-items a:hover,
+.booking-ctas a:hover,
+.footer-links a:hover,
+.social:hover,
+.icon-link:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* Ensure container respects viewport and does not cause side scroll */
+.container {
+  box-sizing: border-box;
+}
+
+/* Small mobile adjustments to avoid any accidental overflow */
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  .card-image {
+    height: 150px;
+  }
+  .carousel-track {
+    gap: 8px;
+  }
+  .nav.open ul {
+    left: 8px;
+    right: 8px;
+  }
+}
+
+/* End overrides */
