@@ -762,7 +762,7 @@ a[href^="mailto:"],
   color:#0b3b2e;
 }
 .booking-ctas-2:hover{
-  color:#252305;
+  background-color:#af9212;
 }
 
 /* Hover state keeps clear visual affordance */
@@ -774,6 +774,7 @@ a[href^="mailto:"]:hover,
 .footer-links a:hover,
 .social:hover,
 .icon-link:hover {
+  color: #805804 ;
 }
 
 /* Ensure container respects viewport and does not cause side scroll */
