@@ -81,7 +81,7 @@ body {
 }
 .icon-link {
   background: linear-gradient(90deg, var(--gold), #d6b85a);
-  color: var(--cream);
+  color: var(--traditional-green);
   padding: 8px 12px;
   border-radius: 22px;
   text-decoration: none;
@@ -300,9 +300,7 @@ h2 {
   text-decoration: none;
   font-weight: 600;
 }
-.social:hover {
-  color: var(--gold);
-}
+
 
 .contact-phone {
   display: flex;
@@ -754,8 +752,17 @@ a[href^="mailto:"],
 .footer-links a,
 .social,
 .icon-link {
-  color: var(--deep-green);
   text-decoration: none;
+}
+
+.booking-ctas-1{
+  color:#d6b85a;
+}
+.booking-ctas-2{
+  color:#0b3b2e;
+}
+.booking-ctas-2:hover{
+  color:#252305;
 }
 
 /* Hover state keeps clear visual affordance */
@@ -767,8 +774,6 @@ a[href^="mailto:"]:hover,
 .footer-links a:hover,
 .social:hover,
 .icon-link:hover {
-  color: var(--gold);
-  text-decoration: underline;
 }
 
 /* Ensure container respects viewport and does not cause side scroll */
