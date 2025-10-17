@@ -4,6 +4,22 @@
   let touchStartX = 0;
   let touchEndX = 0;
 
+  // Hero Carousel - Rotating Images
+  const heroCarousel = document.getElementById("heroCarousel");
+  if (heroCarousel) {
+    const slides = heroCarousel.querySelectorAll(".hero-slide");
+    let currentSlide = 0;
+
+    function rotateHeroSlides() {
+      // The CSS animation handles the rotation automatically
+      // This is just for reference - the animation is defined in CSS
+      currentSlide = (currentSlide + 1) % slides.length;
+    }
+
+    // Optional: Rotate every 15 seconds (matches CSS animation)
+    setInterval(rotateHeroSlides, 15000);
+  }
+
   // Mobile nav toggle
   const navToggle = document.getElementById("navToggle");
   const nav = document.getElementById("nav");
