@@ -1,5 +1,9 @@
 // Single consolidated script for nav, smooth scroll, header, carousel and lightbox
 (function () {
+  // Shared touch variables
+  let touchStartX = 0;
+  let touchEndX = 0;
+
   // Mobile nav toggle
   const navToggle = document.getElementById("navToggle");
   const nav = document.getElementById("nav");
@@ -53,20 +57,27 @@
     lbImage.src = images[currentIndex];
     lightbox.setAttribute("aria-hidden", "false");
     lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
   }
+
   function closeLightbox() {
     if (!lightbox) return;
     lightbox.setAttribute("aria-hidden", "true");
     lightbox.classList.remove("open");
     lbImage && lbImage.classList.remove("zoomed");
+    document.body.style.overflow = "";
   }
+
   function nextImage() {
     currentIndex = (currentIndex + 1) % images.length;
     lbImage.src = images[currentIndex];
+    lbImage.classList.remove("zoomed");
   }
+
   function prevImage() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     lbImage.src = images[currentIndex];
+    lbImage.classList.remove("zoomed");
   }
 
   // delegated click to open
@@ -89,19 +100,36 @@
       }
     }
   });
+
   lbClose && lbClose.addEventListener("click", closeLightbox);
   lbNext && lbNext.addEventListener("click", nextImage);
   lbPrev && lbPrev.addEventListener("click", prevImage);
+
   lightbox &&
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
     });
+
+  // Touch swipe support for lightbox
+  lightbox &&
+    lightbox.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+  lightbox &&
+    lightbox.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) nextImage();
+      if (touchEndX - touchStartX > 50) prevImage();
+    });
+
   document.addEventListener("keydown", (e) => {
     if (!lightbox || lightbox.getAttribute("aria-hidden") === "true") return;
     if (e.key === "Escape") closeLightbox();
     if (e.key === "ArrowRight") nextImage();
     if (e.key === "ArrowLeft") prevImage();
   });
+
   lbImage &&
     lbImage.addEventListener("click", () => lbImage.classList.toggle("zoomed"));
 
@@ -117,26 +145,20 @@
   let slideIndex = 0,
     originalCount = 0,
     cardWidth = 0;
-  const GAP = 14;
+  const GAP = 16;
 
-  function getVisibleCount() {
-    const w = window.innerWidth;
-    if (w > 1400) return 7;
-    if (w > 1100) return 6;
-    if (w > 900) return 5;
-    if (w > 700) return 4;
-    if (w > 500) return 3;
-    return 2;
-  }
   function updateCardMetrics() {
     if (!track || !track.children.length) return;
     const first = track.children[0];
     cardWidth = first.getBoundingClientRect().width + GAP;
   }
+
   function updateCarousel(transition = true) {
     if (!track) return;
     updateCardMetrics();
-    track.style.transition = transition ? "transform 350ms ease" : "none";
+    track.style.transition = transition
+      ? "transform 500ms cubic-bezier(0.4, 0, 0.2, 1)"
+      : "none";
     track.style.transform = `translateX(${-slideIndex * cardWidth}px)`;
   }
 
@@ -156,11 +178,37 @@
     prevBtn.addEventListener("click", () => {
       slideIndex = slideIndex - 1;
       updateCarousel();
+      stopAutoplay();
+      startAutoplay();
     });
+
   nextBtn &&
     nextBtn.addEventListener("click", () => {
       slideIndex = slideIndex + 1;
       updateCarousel();
+      stopAutoplay();
+      startAutoplay();
+    });
+
+  // Touch swipe support for carousel
+  galleryCarousel &&
+    galleryCarousel.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoplay();
+    });
+
+  galleryCarousel &&
+    galleryCarousel.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) {
+        slideIndex = slideIndex + 1;
+        updateCarousel();
+      }
+      if (touchEndX - touchStartX > 50) {
+        slideIndex = slideIndex - 1;
+        updateCarousel();
+      }
+      startAutoplay();
     });
 
   window.addEventListener("load", () => {
@@ -172,6 +220,7 @@
       updateCarousel(false);
     }, 120);
   });
+
   window.addEventListener("resize", () => {
     setTimeout(() => {
       updateCarousel(false);
@@ -184,12 +233,14 @@
     autoplayInterval = setInterval(() => {
       slideIndex = slideIndex + 1;
       updateCarousel();
-    }, 3000);
+    }, 4000);
   }
+
   function stopAutoplay() {
     clearInterval(autoplayInterval);
     autoplayInterval = null;
   }
+
   galleryCarousel &&
     galleryCarousel.addEventListener("mouseenter", stopAutoplay);
   galleryCarousel &&
@@ -197,5 +248,6 @@
   galleryCarousel && galleryCarousel.addEventListener("focusin", stopAutoplay);
   galleryCarousel &&
     galleryCarousel.addEventListener("focusout", startAutoplay);
+
   startAutoplay();
 })();
