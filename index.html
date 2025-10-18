@@ -372,9 +372,10 @@
         <div class="container">
           <h2>Client Reviews</h2>
           <p class="section-sub">Trusted by hundreds of happy clients</p>
-          <div class="reviews-container">
-            <button class="reviews-nav-btn" id="reviewsPrev" aria-label="Previous reviews">‹</button>
-            <div class="reviews-grid">
+          <div class="reviews-carousel" id="reviewsCarousel">
+            <button class="carousel-nav prev" id="reviewsPrev" aria-label="Previous reviews">‹</button>
+            <div class="reviews-viewport">
+              <div class="reviews-track" id="reviewsTrack">
             <div class="review-card">
               <div class="review-stars">★★★★★</div>
               <p class="review-text">
@@ -446,8 +447,9 @@
                 <strong>Ritika Mishra</strong>
                 <span class="review-date">Verified Review</span>
               </div>
+              </div>
             </div>
-            <button class="reviews-nav-btn" id="reviewsNext" aria-label="Next reviews">›</button>
+            <button class="carousel-nav next" id="reviewsNext" aria-label="Next reviews">›</button>
           </div>
         </div>
         <div class="container">

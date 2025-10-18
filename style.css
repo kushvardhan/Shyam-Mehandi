@@ -1242,57 +1242,29 @@ h2:hover::after {
 .reviews .section-sub {
   font-size: 18px;
   color: var(--brown);
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
-/* Reviews Container with Arrow Navigation */
-.reviews-container {
-  position: relative;
+/* Reviews Carousel - Same as Gallery */
+.reviews-carousel {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 48px;
+  position: relative;
+  margin-top: 24px;
+  margin-bottom: 44px;
 }
 
-.reviews-nav-btn {
-  background: linear-gradient(135deg, var(--deep-green), #0a2f26);
-  color: var(--cream);
-  border: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  transition: var(--transition);
-  box-shadow: var(--shadow-md);
-  flex-shrink: 0;
-  z-index: 10;
+.reviews-viewport {
+  overflow: hidden;
+  flex: 1;
+  border-radius: 12px;
 }
 
-.reviews-nav-btn:hover {
-  transform: scale(1.1);
-  box-shadow: var(--shadow-lg);
-}
-
-.reviews-nav-btn:active {
-  transform: scale(0.95);
-}
-
-/* Horizontal Scrollable Reviews */
-.reviews-grid {
+.reviews-track {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 0;
-  margin: 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
-  scrollbar-width: none;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reviews-grid::-webkit-scrollbar {
@@ -1306,16 +1278,12 @@ h2:hover::after {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: var(--transition);
   border: 1px solid #e8e8e8;
-  animation: slideInUp 0.6s ease-out;
   position: relative;
-  width: 280px;
   min-width: 280px;
   flex-shrink: 0;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   height: 320px;
-  margin-right: 20px;
 }
 
 .review-card::before {
@@ -1813,7 +1781,6 @@ h2:hover::after {
 /* Desktop - Show 4 reviews */
 @media (min-width: 1200px) {
   .review-card {
-    width: 280px;
     min-width: 280px;
   }
 }
@@ -1821,7 +1788,6 @@ h2:hover::after {
 /* Laptop - Show 3 reviews */
 @media (min-width: 900px) and (max-width: 1199px) {
   .review-card {
-    width: 320px;
     min-width: 320px;
   }
 }
@@ -1829,7 +1795,6 @@ h2:hover::after {
 /* Tablet - Show 2 reviews */
 @media (min-width: 600px) and (max-width: 899px) {
   .review-card {
-    width: 340px;
     min-width: 340px;
   }
 }
@@ -1837,9 +1802,7 @@ h2:hover::after {
 /* Mobile - Show 1 review */
 @media (max-width: 599px) {
   .review-card {
-    width: 100%;
     min-width: 100%;
-    margin-right: 0;
   }
 }
 
@@ -1956,14 +1919,17 @@ h2:hover::after {
     font-size: 14px;
   }
 
-  .reviews-container {
-    gap: 12px;
+  .reviews-carousel {
+    gap: 8px;
   }
 
-  .reviews-nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+  .review-card {
+    min-width: 140px;
+    height: 280px;
+  }
+
+  .reviews-track {
+    gap: 12px;
   }
 
   .reviews-grid {

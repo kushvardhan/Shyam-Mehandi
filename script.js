@@ -293,104 +293,89 @@
 
   startAutoplay();
 
-  // Reviews carousel with infinite scroll
-  const reviewsGrid = document.querySelector(".reviews-grid");
+  // Reviews carousel - same logic as gallery carousel
+  const reviewsTrack = document.getElementById("reviewsTrack");
   const reviewsPrevBtn = document.getElementById("reviewsPrev");
   const reviewsNextBtn = document.getElementById("reviewsNext");
+  const reviewsCarousel = document.getElementById("reviewsCarousel");
+  let reviewSlideIndex = 0,
+    reviewOriginalCount = 0,
+    reviewCardWidth = 0;
+  const REVIEW_GAP = 20;
 
-  if (reviewsGrid && reviewsPrevBtn && reviewsNextBtn) {
-    // Get all original review cards
-    const allCards = Array.from(reviewsGrid.querySelectorAll(".review-card"));
-    const totalCards = allCards.length;
+  function updateReviewCardMetrics() {
+    if (!reviewsTrack || !reviewsTrack.children.length) return;
+    const first = reviewsTrack.children[0];
+    reviewCardWidth = first.getBoundingClientRect().width + REVIEW_GAP;
+  }
 
-    // Clone all cards multiple times for infinite effect
-    allCards.forEach((card) => {
-      reviewsGrid.appendChild(card.cloneNode(true));
-    });
-    allCards.forEach((card) => {
-      reviewsGrid.appendChild(card.cloneNode(true));
-    });
-    allCards.forEach((card) => {
-      reviewsGrid.appendChild(card.cloneNode(true));
-    });
+  function updateReviewCarousel(transition = true) {
+    if (!reviewsTrack) return;
+    updateReviewCardMetrics();
+    reviewsTrack.style.transition = transition
+      ? "transform 500ms cubic-bezier(0.4, 0, 0.2, 1)"
+      : "none";
+    reviewsTrack.style.transform = `translateX(${
+      -reviewSlideIndex * reviewCardWidth
+    }px)`;
+  }
 
-    // Calculate scroll distance (show 4 cards, scroll by 1 card)
-    const getScrollDistance = () => {
-      const firstCard = reviewsGrid.querySelector(".review-card");
-      if (!firstCard) return 300;
-      return firstCard.offsetWidth + 20; // card width + gap
-    };
-
-    let scrollDistance = getScrollDistance();
-
-    // Scroll to next set of cards
-    const scrollNext = () => {
-      reviewsGrid.scrollBy({
-        left: scrollDistance,
-        behavior: "smooth",
-      });
-      checkAndResetScroll();
-    };
-
-    // Scroll to previous set of cards
-    const scrollPrev = () => {
-      reviewsGrid.scrollBy({
-        left: -scrollDistance,
-        behavior: "smooth",
-      });
-      checkAndResetScroll();
-    };
-
-    // Check if we need to reset scroll position for infinite effect
-    const checkAndResetScroll = () => {
-      setTimeout(() => {
-        const scrollLeft = reviewsGrid.scrollLeft;
-        const maxScroll = reviewsGrid.scrollWidth - reviewsGrid.clientWidth;
-
-        // If at the end, jump to middle
-        if (scrollLeft >= maxScroll - 50) {
-          reviewsGrid.scrollLeft = scrollDistance * totalCards;
-        }
-        // If at the beginning, jump to middle
-        if (scrollLeft <= 50) {
-          reviewsGrid.scrollLeft = scrollDistance * totalCards;
-        }
-      }, 600); // Wait for smooth scroll to finish
-    };
-
-    // Button event listeners
-    reviewsNextBtn.addEventListener("click", scrollNext);
-    reviewsPrevBtn.addEventListener("click", scrollPrev);
-
-    // Touch/swipe support
-    let touchStartX = 0;
-    let isScrolling = false;
-
-    reviewsGrid.addEventListener("touchstart", (e) => {
-      touchStartX = e.touches[0].clientX;
-      isScrolling = false;
-    });
-
-    reviewsGrid.addEventListener("touchmove", () => {
-      isScrolling = true;
-    });
-
-    reviewsGrid.addEventListener("touchend", (e) => {
-      if (!isScrolling) return;
-
-      const touchEndX = e.changedTouches[0].clientX;
-      const diff = touchStartX - touchEndX;
-
-      if (diff > 50) {
-        scrollNext();
-      } else if (diff < -50) {
-        scrollPrev();
+  reviewsTrack &&
+    reviewsTrack.addEventListener("transitionend", () => {
+      if (!reviewsTrack || reviewOriginalCount <= 0) return;
+      if (reviewSlideIndex >= reviewOriginalCount) {
+        reviewSlideIndex = reviewSlideIndex - reviewOriginalCount;
+        updateReviewCarousel(false);
+      } else if (reviewSlideIndex < 0) {
+        reviewSlideIndex = reviewSlideIndex + reviewOriginalCount;
+        updateReviewCarousel(false);
       }
     });
 
-    // Recalculate on window resize
-    window.addEventListener("resize", () => {
-      scrollDistance = getScrollDistance();
+  reviewsPrevBtn &&
+    reviewsPrevBtn.addEventListener("click", () => {
+      reviewSlideIndex = reviewSlideIndex - 1;
+      updateReviewCarousel();
     });
-  }
+
+  reviewsNextBtn &&
+    reviewsNextBtn.addEventListener("click", () => {
+      reviewSlideIndex = reviewSlideIndex + 1;
+      updateReviewCarousel();
+    });
+
+  // Touch swipe support for reviews carousel
+  reviewsCarousel &&
+    reviewsCarousel.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+  reviewsCarousel &&
+    reviewsCarousel.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) {
+        reviewSlideIndex = reviewSlideIndex + 1;
+        updateReviewCarousel();
+      }
+      if (touchEndX - touchStartX > 50) {
+        reviewSlideIndex = reviewSlideIndex - 1;
+        updateReviewCarousel();
+      }
+    });
+
+  window.addEventListener("load", () => {
+    if (!reviewsTrack) return;
+    const originals = Array.from(reviewsTrack.children);
+    reviewOriginalCount = originals.length;
+    originals.forEach((node) => reviewsTrack.appendChild(node.cloneNode(true)));
+    setTimeout(() => {
+      updateReviewCarousel(false);
+    }, 120);
+  });
+
+  window.addEventListener("resize", () => {
+    setTimeout(() => {
+      updateReviewCarousel(false);
+    }, 120);
+  });
 })();
