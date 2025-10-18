@@ -1308,8 +1308,8 @@ h2:hover::after {
   border: 1px solid #e8e8e8;
   animation: slideInUp 0.6s ease-out;
   position: relative;
-  width: 280px;
-  min-width: 280px;
+  width: calc(25% - 15px);
+  min-width: calc(25% - 15px);
   flex-shrink: 0;
   scroll-snap-align: start;
   display: flex;
@@ -1398,6 +1398,7 @@ h2:hover::after {
   border: 1px solid rgba(198, 155, 59, 0.2);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
+  margin-top: 48px;
 }
 
 .reviews-cta:hover {
@@ -1811,16 +1812,32 @@ h2:hover::after {
 /* Large Desktop - Show 4 reviews */
 @media (min-width: 1440px) {
   .review-card {
-    width: 300px;
-    min-width: 300px;
+    width: calc(25% - 15px);
+    min-width: calc(25% - 15px);
   }
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
+/* Desktop - Show 3 reviews */
+@media (min-width: 1024px) and (max-width: 1439px) {
   .review-card {
-    width: 260px;
-    min-width: 260px;
+    width: calc(33.333% - 14px);
+    min-width: calc(33.333% - 14px);
+  }
+}
+
+/* Tablet - Show 2 reviews */
+@media (max-width: 1023px) {
+  .review-card {
+    width: calc(50% - 10px);
+    min-width: calc(50% - 10px);
+  }
+}
+
+/* Mobile - Show 1 review */
+@media (max-width: 600px) {
+  .review-card {
+    width: calc(100% - 0px);
+    min-width: calc(100% - 0px);
   }
 }
 

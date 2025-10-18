@@ -293,13 +293,38 @@
 
   startAutoplay();
 
-  // Reviews navigation with arrow buttons
+  // Reviews navigation with arrow buttons and infinite scroll
   const reviewsGrid = document.querySelector(".reviews-grid");
   const reviewsPrevBtn = document.getElementById("reviewsPrev");
   const reviewsNextBtn = document.getElementById("reviewsNext");
 
   if (reviewsGrid && reviewsPrevBtn && reviewsNextBtn) {
-    const cardWidth = 280 + 20; // card width + gap
+    // Clone all review cards for infinite scroll
+    const originalCards = Array.from(
+      reviewsGrid.querySelectorAll(".review-card")
+    );
+
+    // Clone cards multiple times to create infinite effect
+    originalCards.forEach((card) => {
+      reviewsGrid.appendChild(card.cloneNode(true));
+    });
+    originalCards.forEach((card) => {
+      reviewsGrid.appendChild(card.cloneNode(true));
+    });
+
+    // Calculate scroll amount (one card width + gap)
+    const getCardWidth = () => {
+      const card = reviewsGrid.querySelector(".review-card");
+      if (card) {
+        const style = window.getComputedStyle(card);
+        const width = card.offsetWidth;
+        const marginRight = parseFloat(style.marginRight) || 0;
+        return width + marginRight + 20; // 20px gap
+      }
+      return 300;
+    };
+
+    let cardWidth = getCardWidth();
 
     reviewsPrevBtn.addEventListener("click", () => {
       reviewsGrid.scrollBy({
@@ -313,6 +338,22 @@
         left: cardWidth,
         behavior: "smooth",
       });
+    });
+
+    // Infinite scroll - reset position when reaching end
+    reviewsGrid.addEventListener("scroll", () => {
+      const scrollLeft = reviewsGrid.scrollLeft;
+      const scrollWidth = reviewsGrid.scrollWidth;
+      const clientWidth = reviewsGrid.clientWidth;
+
+      // If scrolled to near the end, reset to beginning
+      if (scrollLeft > scrollWidth - clientWidth - 100) {
+        reviewsGrid.scrollLeft = 0;
+      }
+      // If scrolled to near the beginning, jump to middle
+      if (scrollLeft < 100) {
+        reviewsGrid.scrollLeft = scrollWidth / 3 - clientWidth / 2;
+      }
     });
 
     // Touch swipe support for reviews
@@ -329,6 +370,11 @@
       if (touchEndX - touchStartX > 50) {
         reviewsGrid.scrollBy({ left: -cardWidth, behavior: "smooth" });
       }
+    });
+
+    // Recalculate card width on window resize
+    window.addEventListener("resize", () => {
+      cardWidth = getCardWidth();
     });
   }
 })();
