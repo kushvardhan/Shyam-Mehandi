@@ -266,4 +266,57 @@
     galleryCarousel.addEventListener("focusout", startAutoplay);
 
   startAutoplay();
+
+  // Infinite scroll for reviews
+  const reviewsGrid = document.querySelector(".reviews-grid");
+  if (reviewsGrid) {
+    const reviewCards = Array.from(
+      reviewsGrid.querySelectorAll(".review-card")
+    );
+    if (reviewCards.length > 0) {
+      // Clone all cards for infinite scroll effect
+      reviewCards.forEach((card) => {
+        reviewsGrid.appendChild(card.cloneNode(true));
+      });
+    }
+
+    // Auto-scroll reviews
+    let reviewScrollInterval = null;
+    function autoScrollReviews() {
+      if (!reviewsGrid) return;
+      reviewsGrid.scrollLeft += 1;
+      // Reset scroll when reaching the end
+      if (
+        reviewsGrid.scrollLeft >=
+        reviewsGrid.scrollWidth - reviewsGrid.clientWidth - 10
+      ) {
+        reviewsGrid.scrollLeft = 0;
+      }
+    }
+
+    // Start auto-scroll
+    reviewScrollInterval = setInterval(autoScrollReviews, 30);
+
+    // Pause on hover
+    reviewsGrid.addEventListener("mouseenter", () => {
+      clearInterval(reviewScrollInterval);
+    });
+
+    // Resume on mouse leave
+    reviewsGrid.addEventListener("mouseleave", () => {
+      reviewScrollInterval = setInterval(autoScrollReviews, 30);
+    });
+
+    // Pause on touch
+    reviewsGrid.addEventListener("touchstart", () => {
+      clearInterval(reviewScrollInterval);
+    });
+
+    // Resume after touch
+    reviewsGrid.addEventListener("touchend", () => {
+      setTimeout(() => {
+        reviewScrollInterval = setInterval(autoScrollReviews, 30);
+      }, 2000);
+    });
+  }
 })();
