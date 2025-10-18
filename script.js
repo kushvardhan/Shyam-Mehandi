@@ -293,88 +293,104 @@
 
   startAutoplay();
 
-  // Reviews navigation with arrow buttons and infinite scroll
+  // Reviews carousel with infinite scroll
   const reviewsGrid = document.querySelector(".reviews-grid");
   const reviewsPrevBtn = document.getElementById("reviewsPrev");
   const reviewsNextBtn = document.getElementById("reviewsNext");
 
   if (reviewsGrid && reviewsPrevBtn && reviewsNextBtn) {
-    // Clone all review cards for infinite scroll
-    const originalCards = Array.from(
-      reviewsGrid.querySelectorAll(".review-card")
-    );
+    // Get all original review cards
+    const allCards = Array.from(reviewsGrid.querySelectorAll(".review-card"));
+    const totalCards = allCards.length;
 
-    // Clone cards multiple times to create infinite effect
-    originalCards.forEach((card) => {
+    // Clone all cards multiple times for infinite effect
+    allCards.forEach((card) => {
       reviewsGrid.appendChild(card.cloneNode(true));
     });
-    originalCards.forEach((card) => {
+    allCards.forEach((card) => {
+      reviewsGrid.appendChild(card.cloneNode(true));
+    });
+    allCards.forEach((card) => {
       reviewsGrid.appendChild(card.cloneNode(true));
     });
 
-    // Calculate scroll amount (one card width + gap)
-    const getCardWidth = () => {
-      const card = reviewsGrid.querySelector(".review-card");
-      if (card) {
-        const style = window.getComputedStyle(card);
-        const width = card.offsetWidth;
-        const marginRight = parseFloat(style.marginRight) || 0;
-        return width + marginRight + 20; // 20px gap
-      }
-      return 300;
+    // Calculate scroll distance (show 4 cards, scroll by 1 card)
+    const getScrollDistance = () => {
+      const firstCard = reviewsGrid.querySelector(".review-card");
+      if (!firstCard) return 300;
+      return firstCard.offsetWidth + 20; // card width + gap
     };
 
-    let cardWidth = getCardWidth();
+    let scrollDistance = getScrollDistance();
 
-    reviewsPrevBtn.addEventListener("click", () => {
+    // Scroll to next set of cards
+    const scrollNext = () => {
       reviewsGrid.scrollBy({
-        left: -cardWidth,
+        left: scrollDistance,
         behavior: "smooth",
       });
-    });
+      checkAndResetScroll();
+    };
 
-    reviewsNextBtn.addEventListener("click", () => {
+    // Scroll to previous set of cards
+    const scrollPrev = () => {
       reviewsGrid.scrollBy({
-        left: cardWidth,
+        left: -scrollDistance,
         behavior: "smooth",
       });
-    });
+      checkAndResetScroll();
+    };
 
-    // Infinite scroll - reset position when reaching end
-    reviewsGrid.addEventListener("scroll", () => {
-      const scrollLeft = reviewsGrid.scrollLeft;
-      const scrollWidth = reviewsGrid.scrollWidth;
-      const clientWidth = reviewsGrid.clientWidth;
+    // Check if we need to reset scroll position for infinite effect
+    const checkAndResetScroll = () => {
+      setTimeout(() => {
+        const scrollLeft = reviewsGrid.scrollLeft;
+        const maxScroll = reviewsGrid.scrollWidth - reviewsGrid.clientWidth;
 
-      // If scrolled to near the end, reset to beginning
-      if (scrollLeft > scrollWidth - clientWidth - 100) {
-        reviewsGrid.scrollLeft = 0;
-      }
-      // If scrolled to near the beginning, jump to middle
-      if (scrollLeft < 100) {
-        reviewsGrid.scrollLeft = scrollWidth / 3 - clientWidth / 2;
-      }
-    });
+        // If at the end, jump to middle
+        if (scrollLeft >= maxScroll - 50) {
+          reviewsGrid.scrollLeft = scrollDistance * totalCards;
+        }
+        // If at the beginning, jump to middle
+        if (scrollLeft <= 50) {
+          reviewsGrid.scrollLeft = scrollDistance * totalCards;
+        }
+      }, 600); // Wait for smooth scroll to finish
+    };
 
-    // Touch swipe support for reviews
+    // Button event listeners
+    reviewsNextBtn.addEventListener("click", scrollNext);
+    reviewsPrevBtn.addEventListener("click", scrollPrev);
+
+    // Touch/swipe support
     let touchStartX = 0;
+    let isScrolling = false;
+
     reviewsGrid.addEventListener("touchstart", (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+      touchStartX = e.touches[0].clientX;
+      isScrolling = false;
+    });
+
+    reviewsGrid.addEventListener("touchmove", () => {
+      isScrolling = true;
     });
 
     reviewsGrid.addEventListener("touchend", (e) => {
-      const touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) {
-        reviewsGrid.scrollBy({ left: cardWidth, behavior: "smooth" });
-      }
-      if (touchEndX - touchStartX > 50) {
-        reviewsGrid.scrollBy({ left: -cardWidth, behavior: "smooth" });
+      if (!isScrolling) return;
+
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+
+      if (diff > 50) {
+        scrollNext();
+      } else if (diff < -50) {
+        scrollPrev();
       }
     });
 
-    // Recalculate card width on window resize
+    // Recalculate on window resize
     window.addEventListener("resize", () => {
-      cardWidth = getCardWidth();
+      scrollDistance = getScrollDistance();
     });
   }
 })();
