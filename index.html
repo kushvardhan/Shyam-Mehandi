@@ -12,7 +12,7 @@
       name="keywords"
       content="Mehandi, Mehndi, Henna, Bridal Mehandi, Arabic Mehandi, Motihari, Shyam Kumar"
     />
-    <link rel="icon" href="assets\ShyamMehandiLogo-Photoroom.png" type="image/jpeg" />
+    <link rel="icon" href="assets\ShyamMehandiLogo.jpeg" type="image/jpeg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -27,7 +27,7 @@
     <header class="site-header" id="header">
       <div class="container header-inner">
         <a class="logo" href="#home">
-          <img src="assets/ShyamMehandiLogo.jpeg" alt="Shyam Mehandi Logo" />
+          <img src="assets\ShyamMehandiLogo-Photoroom.png" alt="Shyam Mehandi Logo" />
         </a>
         <nav class="nav" id="nav">
           <ul>
@@ -372,7 +372,9 @@
         <div class="container">
           <h2>Client Reviews</h2>
           <p class="section-sub">Trusted by hundreds of happy clients</p>
-          <div class="reviews-grid">
+          <div class="reviews-container">
+            <button class="reviews-nav-btn" id="reviewsPrev" aria-label="Previous reviews">‹</button>
+            <div class="reviews-grid">
             <div class="review-card">
               <div class="review-stars">★★★★★</div>
               <p class="review-text">
@@ -445,6 +447,7 @@
                 <span class="review-date">Verified Review</span>
               </div>
             </div>
+            <button class="reviews-nav-btn" id="reviewsNext" aria-label="Next reviews">›</button>
           </div>
           <div class="reviews-cta">
             <p>Want to share your experience? Leave a review on Google!</p>

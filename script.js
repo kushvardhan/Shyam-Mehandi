@@ -293,56 +293,42 @@
 
   startAutoplay();
 
-  // Infinite scroll for reviews
+  // Reviews navigation with arrow buttons
   const reviewsGrid = document.querySelector(".reviews-grid");
-  if (reviewsGrid) {
-    const reviewCards = Array.from(
-      reviewsGrid.querySelectorAll(".review-card")
-    );
-    if (reviewCards.length > 0) {
-      // Clone all cards for infinite scroll effect
-      reviewCards.forEach((card) => {
-        reviewsGrid.appendChild(card.cloneNode(true));
+  const reviewsPrevBtn = document.getElementById("reviewsPrev");
+  const reviewsNextBtn = document.getElementById("reviewsNext");
+
+  if (reviewsGrid && reviewsPrevBtn && reviewsNextBtn) {
+    const cardWidth = 280 + 20; // card width + gap
+
+    reviewsPrevBtn.addEventListener("click", () => {
+      reviewsGrid.scrollBy({
+        left: -cardWidth,
+        behavior: "smooth",
       });
-    }
+    });
 
-    // Auto-scroll reviews
-    let reviewScrollInterval = null;
-    function autoScrollReviews() {
-      if (!reviewsGrid) return;
-      reviewsGrid.scrollLeft += 1;
-      // Reset scroll when reaching the end
-      if (
-        reviewsGrid.scrollLeft >=
-        reviewsGrid.scrollWidth - reviewsGrid.clientWidth - 10
-      ) {
-        reviewsGrid.scrollLeft = 0;
+    reviewsNextBtn.addEventListener("click", () => {
+      reviewsGrid.scrollBy({
+        left: cardWidth,
+        behavior: "smooth",
+      });
+    });
+
+    // Touch swipe support for reviews
+    let touchStartX = 0;
+    reviewsGrid.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    reviewsGrid.addEventListener("touchend", (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) {
+        reviewsGrid.scrollBy({ left: cardWidth, behavior: "smooth" });
       }
-    }
-
-    // Start auto-scroll
-    reviewScrollInterval = setInterval(autoScrollReviews, 30);
-
-    // Pause on hover
-    reviewsGrid.addEventListener("mouseenter", () => {
-      clearInterval(reviewScrollInterval);
-    });
-
-    // Resume on mouse leave
-    reviewsGrid.addEventListener("mouseleave", () => {
-      reviewScrollInterval = setInterval(autoScrollReviews, 30);
-    });
-
-    // Pause on touch
-    reviewsGrid.addEventListener("touchstart", () => {
-      clearInterval(reviewScrollInterval);
-    });
-
-    // Resume after touch
-    reviewsGrid.addEventListener("touchend", () => {
-      setTimeout(() => {
-        reviewScrollInterval = setInterval(autoScrollReviews, 30);
-      }, 2000);
+      if (touchEndX - touchStartX > 50) {
+        reviewsGrid.scrollBy({ left: -cardWidth, behavior: "smooth" });
+      }
     });
   }
 })();
